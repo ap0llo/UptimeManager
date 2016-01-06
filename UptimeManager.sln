@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UptimeManager.Client", "UptimeManager.Client\main\UptimeManager.Client.csproj", "{79F79528-D7AD-4731-B21C-84CE28E6B430}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UptimeManager.Client", "UptimeManager.Client", "{DD2B2C5C-2ECD-4B60-BC3F-10220D3926A8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UptimeManager.Core", "UptimeManager.Core", "{262AD41A-6DDB-4C4F-A173-579E6D54829A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UptimeManager.Core", "UptimeManager.Core\main\UptimeManager.Core.csproj", "{7AC68156-2F8D-4E2E-B676-B9C9B368EA2D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UptimeManager.Configuration", "UptimeManager.Configuration", "{1E1DA5A1-5620-4E50-8532-E86030BE2B30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UptimeManager.Configuration", "UptimeManager.Configuration\main\UptimeManager.Configuration.csproj", "{ECB379BA-5029-4F63-AC4E-1356E6AE044E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UptimeManager.Calendar", "UptimeManager.Calendar", "{97D303F4-5995-4A27-9D53-8FB4607803BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UptimeManager.Calendar", "UptimeManager.Calendar\main\UptimeManager.Calendar.csproj", "{AD4BA0B3-CD24-48F7-BB82-8A0C8EA11BDE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UptimeManager.Daemon", "UptimeManager.Daemon", "{E367B360-F26C-4B33-A5CD-6B69E80A0F9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UptimeManager.Daemon", "UptimeManager.Daemon\main\UptimeManager.Daemon.csproj", "{BE786B30-6446-41FA-955B-16FC34ADB4C2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{79F79528-D7AD-4731-B21C-84CE28E6B430}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79F79528-D7AD-4731-B21C-84CE28E6B430}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79F79528-D7AD-4731-B21C-84CE28E6B430}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79F79528-D7AD-4731-B21C-84CE28E6B430}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AC68156-2F8D-4E2E-B676-B9C9B368EA2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AC68156-2F8D-4E2E-B676-B9C9B368EA2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AC68156-2F8D-4E2E-B676-B9C9B368EA2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AC68156-2F8D-4E2E-B676-B9C9B368EA2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECB379BA-5029-4F63-AC4E-1356E6AE044E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECB379BA-5029-4F63-AC4E-1356E6AE044E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECB379BA-5029-4F63-AC4E-1356E6AE044E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECB379BA-5029-4F63-AC4E-1356E6AE044E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD4BA0B3-CD24-48F7-BB82-8A0C8EA11BDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD4BA0B3-CD24-48F7-BB82-8A0C8EA11BDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD4BA0B3-CD24-48F7-BB82-8A0C8EA11BDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD4BA0B3-CD24-48F7-BB82-8A0C8EA11BDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE786B30-6446-41FA-955B-16FC34ADB4C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE786B30-6446-41FA-955B-16FC34ADB4C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE786B30-6446-41FA-955B-16FC34ADB4C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE786B30-6446-41FA-955B-16FC34ADB4C2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{79F79528-D7AD-4731-B21C-84CE28E6B430} = {DD2B2C5C-2ECD-4B60-BC3F-10220D3926A8}
+		{7AC68156-2F8D-4E2E-B676-B9C9B368EA2D} = {262AD41A-6DDB-4C4F-A173-579E6D54829A}
+		{ECB379BA-5029-4F63-AC4E-1356E6AE044E} = {1E1DA5A1-5620-4E50-8532-E86030BE2B30}
+		{AD4BA0B3-CD24-48F7-BB82-8A0C8EA11BDE} = {97D303F4-5995-4A27-9D53-8FB4607803BF}
+		{BE786B30-6446-41FA-955B-16FC34ADB4C2} = {E367B360-F26C-4B33-A5CD-6B69E80A0F9E}
+	EndGlobalSection
+EndGlobal

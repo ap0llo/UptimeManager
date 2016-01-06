@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ConfigurationSchema"
+    targetNamespace="http://grynwald.net/schemas/2016/UptimeManager/v1/Configuration/"
+    elementFormDefault="qualified"
+    xmlns="http://grynwald.net/schemas/2016/UptimeManager/v1/Configuration/"    
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  
+  <!--Root element-->
+  <xs:element name="UptimeManagerConfiguration" type="UptimeManagerConfigurationT" />
+  
+  <!--Types-->
+  <xs:complexType name="UptimeManagerConfigurationT">
+    <xs:sequence>
+      <xs:element name="Device" type="DeviceT" minOccurs="0" maxOccurs="unbounded"   />
+    </xs:sequence>
+    <xs:attribute name="Version" type="xs:string" use="required" />
+  </xs:complexType>
+
+
+  <xs:complexType name="DeviceT">
+    <xs:sequence>     
+        <xs:element name="IsRunningCommand"  type="CommandT" minOccurs="0" maxOccurs="1" />
+        <xs:element name="StartCommand"  type="CommandT" minOccurs="0" maxOccurs="1" />
+        <xs:element name="StopCommand"  type="CommandT" minOccurs="0" maxOccurs="1" />
+        <xs:element name="UptimeBufferInterval" type="TimeSpanT" minOccurs="0" maxOccurs="1" />      
+    </xs:sequence>
+    <xs:attribute name="Name" type="xs:string" use="required"     />    
+    <xs:attribute name="CalendarType" type="CalendarTypeT" use="required" />
+    <xs:attribute name="CalendarProviderSettingsFileName" type="xs:string" use="required" />
+    <xs:attribute name="CalendarName" type="xs:string" use="required" />
+  </xs:complexType>
+
+  <xs:simpleType name="CalendarTypeT">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="GoogleCalendar" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="CommandT">
+    <xs:choice>
+      <xs:element name="PingCommand" type="PingCommandT" />
+      <xs:element name="ShellCommand" type="ShellCommandT" />
+      <xs:element name="NopCommand" type="NopCommandT" />
+    </xs:choice>
+  </xs:complexType>
+
+
+  <xs:complexType name="PingCommandT">
+    <xs:attribute name="Address" type="xs:string" use="required" />
+  </xs:complexType>
+
+  <xs:complexType name="ShellCommandT">
+    <xs:attribute name="ProgramName" type="xs:string" use="required" />
+    <xs:attribute name="Arguments" type="xs:string" use="required" />
+    <xs:attribute name="ExpectedReturnCode" type="xs:int" use="optional" />
+  </xs:complexType>
+
+  <xs:complexType name="NopCommandT">
+    <xs:sequence />
+  </xs:complexType>
+  
+
+  <xs:complexType name="TimeSpanT">
+    <xs:attribute name="Hours" type="xs:int" use="optional" />
+    <xs:attribute name="Minutes" type="xs:int" use="optional"/>
+    <xs:attribute name="Seconds" type="xs:int" use="optional"/>
+  </xs:complexType>
+  
+</xs:schema>

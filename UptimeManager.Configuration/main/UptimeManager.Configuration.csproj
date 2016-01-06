@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="$(MSBuildThisFileDirectory)\..\..\common\CommonProperties.properties" />
+  <PropertyGroup>
+    <ProjectGuid>{ECB379BA-5029-4F63-AC4E-1356E6AE044E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UptimeManager</RootNamespace>
+    <AssemblyName>UptimeManager.Configuration</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NLog.4.2.3\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configuration\ImmutableDeviceConfiguration.cs" />
+    <Compile Include="Configuration\ImmutableUptimeManagerConfiguration.cs" />
+    <Compile Include="Configuration\Xml\XElementExtensions.cs" />
+    <Compile Include="Configuration\Xml\XmlAttributeNames.cs" />
+    <Compile Include="Configuration\Xml\XmlConfigurationReader.cs" />
+    <Compile Include="Configuration\Xml\XmlNames.cs" />
+    <Compile Include="Configuration\CalendarType.cs" />
+    <Compile Include="Configuration\Commands\NopCommandSpecification.cs" />
+    <Compile Include="Configuration\Commands\PingCommandSpecification.cs" />
+    <Compile Include="Configuration\Commands\ShellCommandSpecification.cs" />
+    <Compile Include="Configuration\_Exceptions\ConfigurationException.cs" />
+    <Compile Include="Configuration\ConfigurationReaderFactory.cs" />
+    <Compile Include="Configuration\ConfigurationType.cs" />
+    <Compile Include="Configuration\Commands\ICommandVisitor.cs" />
+    <Compile Include="Configuration\Commands\ICommandSpecification.cs" />
+    <Compile Include="Configuration\IConfigurationReader.cs" />
+    <Compile Include="Configuration\IDeviceConfiguration.cs" />
+    <Compile Include="Configuration\IUptimeManagerConfiguration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Configuration\Xml\ConfigurationSchema.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

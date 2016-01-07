@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Calendar\CalendarFactoryExtensions.cs" />
     <Compile Include="Core\CalendarTypeExtensions.cs" />
     <Compile Include="Core\Client\UptimeManagementClient.cs" />
     <Compile Include="Core\CommandExecutor.cs" />

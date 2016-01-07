@@ -3,14 +3,19 @@
 // //  Licensed under the MIT License. See LICENSE.txt file in the project root for full license information.  
 // // -----------------------------------------------------------------------------------------------------------
 
-using System.Collections.Generic;
+using System;
 
-namespace UptimeManager.Configuration
+namespace UptimeManager.Client
 {
-    public interface IUptimeManagerConfiguration
+    [Serializable]
+    class LockManagerException : Exception
     {
-        string FilePath { get; }
+        public LockManagerException(string message) : base(message)
+        {
+        }
 
-        IEnumerable<IDeviceConfiguration> Devices { get; }
+        public LockManagerException(string message, Exception innerException) : base(message, innerException)
+        {
+        }
     }
 }

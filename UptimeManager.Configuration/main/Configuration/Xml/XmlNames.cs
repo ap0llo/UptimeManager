@@ -24,6 +24,9 @@ namespace UptimeManager.Configuration.Xml
         public static readonly XName NopCommand = ExpandName("NopCommand");
         public static readonly XName UptimeBufferInterval = ExpandName("UptimeBufferInterval");
 
+        public static readonly XName UptimeProviders = ExpandName("UptimeProviders");
+        public static readonly XName Calendar = ExpandName("Calendar");
+        
         static XName ExpandName(string localName) => XName.Get(localName, s_Namespace);
 
 

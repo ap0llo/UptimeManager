@@ -24,9 +24,9 @@ namespace UptimeManager.Configuration
         CalendarType UptimeCalendarType { get; }
 
         /// <summary>
-        /// The path that can be used b the calendar implentation to store configuration
+        /// The path of the directory that can be used by the calendar implentation to store configuration
         /// </summary>
-        string CalendarProviderSettingsFileName { get; }
+        string CalendarProviderSettingsDirectory { get; }
 
         /// <summary>
         /// The name of the calendar used to configure uptime for the device

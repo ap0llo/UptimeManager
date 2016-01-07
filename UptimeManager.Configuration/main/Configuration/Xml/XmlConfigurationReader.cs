@@ -20,7 +20,7 @@ namespace UptimeManager.Configuration.Xml
     class XmlConfigurationReader : IConfigurationReader
     {
 
-        static readonly string[] s_SupportedConfigurationVersions = { "0.1", "0.2", "0.3" };
+        static readonly string[] s_SupportedConfigurationVersions = { "1.0" };
 
         const string s_ConfigurationSchema = "UptimeManager.Configuration.Xml.ConfigurationSchema.xsd";
 
@@ -28,9 +28,8 @@ namespace UptimeManager.Configuration.Xml
 
         public IUptimeManagerConfiguration ReadConfiguration(string filePath)
         {
-
-            var absolutePath = Path.GetFullPath(filePath);
-            var document = XDocument.Load(absolutePath);
+            var absoluteFilePath = Path.GetFullPath(filePath);
+            var document = XDocument.Load(absoluteFilePath);
 
             document.Validate(GetConfigurationSchema(), (sender, args) =>
                 {
@@ -41,7 +40,7 @@ namespace UptimeManager.Configuration.Xml
             EnsureVersionIsSupported(versionString);
 
             var result = new ImmutableUptimeManagerConfiguration(
-                    Path.GetDirectoryName(absolutePath),
+                    absoluteFilePath,
                     document.Descendants(XmlNames.Device)
                             .Select(element => ReadDevice(element, Path.GetDirectoryName(filePath)))
                 );
@@ -52,7 +51,6 @@ namespace UptimeManager.Configuration.Xml
 
         IDeviceConfiguration ReadDevice(XElement deviceElement, string configDirectory)
         {
-
             var uptimeBufferInterval = new TimeSpan(0, 10, 0);
 
             if (deviceElement.Element(XmlNames.UptimeBufferInterval) != null)
@@ -74,9 +72,9 @@ namespace UptimeManager.Configuration.Xml
 
             var device = new ImmutableDeviceConfiguration(
                     name: deviceElement.RequireAttributeValue(XmlAttributeNames.Name),
-                    uptimeCalendarType: ReadCalendarType(deviceElement.RequireAttributeValue(XmlAttributeNames.CalendarType)),
-                    calendarProviderSettingsName: Path.Combine(configDirectory, deviceElement.RequireAttributeValue(XmlAttributeNames.CalendarProviderSettingsFileName)),
-                    uptimeCalendarName: deviceElement.RequireAttributeValue(XmlAttributeNames.CalendarName),
+                    uptimeCalendarType: GetCalendarType(deviceElement),
+                    calendarProviderSettingsName: GetCalendarSettingsDirectory(deviceElement, configDirectory),
+                    uptimeCalendarName: GetCalendarName(deviceElement),
                     uptimeBufferInterval: uptimeBufferInterval,
                     isRunningCommand: isRunningCommand,
                     startCommand: startCommand,
@@ -93,6 +91,41 @@ namespace UptimeManager.Configuration.Xml
                 throw new ConfigurationException("Could not parse value '{0}' as CalendarType");
             }
             return calendarType;
+        }
+
+        CalendarType GetCalendarType(XElement deviceElement)
+        {            
+            return ReadCalendarType(GetCalendarElement(deviceElement).RequireAttributeValue(XmlAttributeNames.Type));
+        }
+
+        string GetCalendarSettingsDirectory(XElement deviceElement, string configurationDirectory)
+        {
+            var value = GetCalendarElement(deviceElement).RequireAttributeValue(XmlAttributeNames.SettingsDirectory);
+
+            if (Path.IsPathRooted(value))
+            {
+                return value;
+            }
+            else
+            {
+                return Path.GetFullPath(Path.Combine(configurationDirectory, value));
+            }
+        }
+
+
+        string GetCalendarName(XElement deviceElement)
+        {
+            return GetCalendarElement(deviceElement).RequireAttributeValue(XmlAttributeNames.Name);
+        }
+
+
+        XElement GetCalendarElement(XElement deviceElement)
+        {
+            var element = deviceElement
+                ?.Element(XmlNames.UptimeProviders)
+                ?.Element(XmlNames.Calendar);
+
+            return element;
         }
 
         ICommandSpecification ReadCommand(XElement commandElement)

@@ -12,28 +12,22 @@ namespace UptimeManager.Configuration
     class ImmutableUptimeManagerConfiguration : IUptimeManagerConfiguration
     {
 
-        public string ConfigurationPath
+        public string FilePath { get; }
+
+        public IEnumerable<IDeviceConfiguration> Devices { get; }
+
+
+        public ImmutableUptimeManagerConfiguration(string filePath, IEnumerable<IDeviceConfiguration> devices)
         {
-            get;             
-        }
-
-        public IEnumerable<IDeviceConfiguration> Devices 
-        { 
-            get;            
-        }
-
-
-        public ImmutableUptimeManagerConfiguration(string configurationPath, IEnumerable<IDeviceConfiguration> devices)
-        {
-            if (configurationPath == null)
+            if (filePath == null)
             {
-                throw new ArgumentNullException(nameof(configurationPath));
+                throw new ArgumentNullException(nameof(filePath));
             }
             if (devices == null)
             {
                 throw new ArgumentNullException(nameof(devices));
             }
-            this.ConfigurationPath = configurationPath;
+            this.FilePath = filePath;
             this.Devices = devices.ToList();
         }
     }

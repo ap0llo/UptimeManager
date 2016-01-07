@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<UptimeManagerConfiguration xmlns="http://grynwald.net/schemas/2016/UptimeManager/v1/Configuration/" Version="1.0">
+
+  <!--Relative path-->
+  <Device Name="Device1">
+    <UptimeProviders>
+      <Calendar Name="Calendar" SettingsDirectory="dir" Type="GoogleCalendar"/>
+    </UptimeProviders>
+  </Device>
+
+  <!--Relative path 2-->
+  <Device Name="Device2">
+    <UptimeProviders>
+      <Calendar Name="Calendar" SettingsDirectory="..\dir" Type="GoogleCalendar"/>
+    </UptimeProviders>
+  </Device>
+
+  <!--Absolute path-->
+  <Device Name="Device3">
+    <UptimeProviders>
+      <Calendar Name="Calendar" SettingsDirectory="C:\dir" Type="GoogleCalendar"/>
+    </UptimeProviders>
+  </Device>
+
+</UptimeManagerConfiguration>

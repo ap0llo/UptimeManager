@@ -18,3 +18,4 @@ using System.Runtime.InteropServices;
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("ecb379ba-5029-4f63-ac4e-1356e6ae044e")]
 
+[assembly:InternalsVisibleTo("UptimeManager.Configuration.Test")]

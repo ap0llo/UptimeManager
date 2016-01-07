@@ -2,18 +2,12 @@
 // //  Copyright (c) 2015-2016, Andreas Grünwald
 // //  Licensed under the MIT License. See LICENSE.txt file in the project root for full license information.  
 // // -----------------------------------------------------------------------------------------------------------
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace UptimeManager
+namespace UptimeManager.Client
 {
-    class Program
+    public class Nouns
     {
-        static void Main(string[] args)
-        {
-        }
+        public const string UptimeManager = "UptimeManager";
+        public const string UptimeManagerDevice = "UptimeManagerDevice";
+        public const string UptimeManagerDeviceLock = "UptimeManagerDeviceLock";
     }
 }

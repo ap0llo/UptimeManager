@@ -40,7 +40,7 @@ namespace UptimeManager.Core
 
             this.m_Device = device;
             this.m_Calendar = calendarFactory.GetCalendar(m_Device.UptimeCalendarType.ToCalendarCalendarType(),
-                m_Device.CalendarProviderSettingsFileName,
+                m_Device.CalendarProviderSettingsDirectory,
                 m_Device.UptimeCalendarName);
         }
 

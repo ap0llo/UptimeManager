@@ -22,6 +22,8 @@ namespace UptimeManager.Configuration.Xml
         public const string Hours = "Hours";
         public const string Minutes = "Minutes";
         public const string Seconds = "Seconds";
+        public const string Type = "Type";
+        public const string SettingsDirectory = "SettingsDirectory";
 
     }
 }

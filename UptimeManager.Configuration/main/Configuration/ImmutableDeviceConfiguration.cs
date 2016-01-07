@@ -21,7 +21,7 @@ namespace UptimeManager.Configuration
             get;
         }
 
-        public string CalendarProviderSettingsFileName
+        public string CalendarProviderSettingsDirectory
         {
             get;
         }
@@ -58,7 +58,7 @@ namespace UptimeManager.Configuration
         {
             this.Name = name;
             this.UptimeCalendarType = uptimeCalendarType;
-            this.CalendarProviderSettingsFileName = calendarProviderSettingsName;
+            this.CalendarProviderSettingsDirectory = calendarProviderSettingsName;
             this.UptimeCalendarName = uptimeCalendarName;
             this.UptimeBufferInterval = uptimeBufferInterval;
             this.IsRunningCommand = isRunningCommand;

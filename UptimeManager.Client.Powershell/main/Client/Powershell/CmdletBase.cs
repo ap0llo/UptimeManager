@@ -13,7 +13,7 @@ namespace UptimeManager.Client.Powershell
     public class CmdletBase : Cmdlet
     {
         const string s_AppDataDirectoryName = "UptimeManager";
-        const string s_ConfigFileName = "UptimeManager-Configuration.xml";
+        const string s_ConfigFileName = "Configuration.xml";
 
 
         [Parameter(Mandatory = false, Position = 0)]

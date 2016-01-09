@@ -28,8 +28,8 @@ namespace UptimeManager.Calendar.Google
     class GoogleCalendar : ICalendar
     {
 
-        const string s_Cancelled = "cancelled";
-        const string s_ClientSecretsFileName = "UptimeManager.Calender.Google.ClientSecrets.json";
+        const string s_Cancelled = "cancelled";        
+        const string s_ClientSecretsResourceName = "UptimeManager.Calendar.Google.ClientSecrets.json";
 
         const string s_TlsException = "TlsException";
 
@@ -289,7 +289,7 @@ namespace UptimeManager.Calendar.Google
             {
                 throw new CalendarException("Error accessing Google Calendar", ex);
             }
-                //mono specific exception, cannot be referenced directly
+            //mono specific exception, cannot be referenced directly
             catch (Exception ex) when (ex.GetType().Name == s_TlsException)
             {
                 throw new CalendarException("Error accessing Google Calendar", ex);
@@ -313,9 +313,20 @@ namespace UptimeManager.Calendar.Google
 
         Stream OpenClientSecretsStream()
         {
-            var directory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);            
-            var file = Path.Combine(directory, s_ClientSecretsFileName);
-            return File.Open(file, FileMode.Open);
+            var assembly = Assembly.GetExecutingAssembly();
+
+            // if client key was embedded into assembly, load the embedded resource
+            if (assembly.GetManifestResourceNames().Contains(s_ClientSecretsResourceName))
+            {
+                return assembly.GetManifestResourceStream(s_ClientSecretsResourceName);
+            }
+            // else: look for a client secrets file placed next to the assembly
+            else
+            {
+                var directory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);            
+                var file = Path.Combine(directory, s_ClientSecretsResourceName);
+                return File.Open(file, FileMode.Open);
+            }
         }
 
     }

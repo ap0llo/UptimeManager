@@ -144,7 +144,7 @@ namespace UptimeManager.Daemon
                         throw;
                     }
 
-                    Task.Delay(60000, m_CancellationTokenSource.Token).Wait();
+                    TaskEx.Delay(60000, m_CancellationTokenSource.Token).Wait();
                 }
             }, m_CancellationTokenSource.Token);
 

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<PropertyGroup>
+		<GoogleClientIdFilePath>$(MSBuildThisFileDirectory)Calendar\Google.ClientSecrets.json</GoogleClientIdFilePath>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<EmbeddedResource Include="$(GoogleClientIdFilePath)" Condition="Exists('$(GoogleClientIdFilePath)')" />
+	</ItemGroup>
+  
+	<Target Name="CheckGoogleClientIdFilePath" BeforeTargets="Build">
+		<Warning Text="The file '$(GoogleClientIdFilePath)' could not be found. No client-id was embedded into the assembly. Remember to place the client credentials into a separate file placed next to the '$(AssemblyName)' assembly" Condition="!Exists('$(GoogleClientIdFilePath)')" />
+	</Target>
+
+
+</Project>

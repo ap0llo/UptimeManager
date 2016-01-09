@@ -9,8 +9,8 @@ using UptimeManager.Calendar;
 
 namespace UptimeManager.Client.Powershell
 {
-    [Cmdlet(VerbsData.Initialize, Nouns.UptimeManager)]
-    public class InitializeUptimeManagerCmdlet : CmdletBase
+    [Cmdlet(VerbsCommunications.Connect, Nouns.UptimeManager)]
+    public class ConnectUptimeManagerCmdlet : CmdletBase
     {
         protected override void ProcessRecord()
         {

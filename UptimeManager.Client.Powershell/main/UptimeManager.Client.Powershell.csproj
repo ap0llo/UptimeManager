@@ -64,7 +64,7 @@
     <Compile Include="Client\Nouns.cs" />
     <Compile Include="Client\Powershell\CmdletBase.cs" />
     <Compile Include="Client\Powershell\GetUptimeManagerDeviceCmdlet.cs" />
-    <Compile Include="Client\Powershell\InitializeUptimeManagerCmdlet.cs" />
+    <Compile Include="Client\Powershell\ConnectUptimeManagerCmdlet.cs" />
     <Compile Include="Client\Powershell\SetUptimeManagerDeviceLockCmdlet.cs" />
     <Compile Include="Client\LockManager.cs" />
     <Compile Include="Client\_Exceptions\LockManagerException.cs" />

@@ -74,7 +74,7 @@ namespace UptimeManager.Daemon
 
             var expectedState = activeRequests.Any() ? DeviceState.Running : DeviceState.Off;
 
-            m_Logger.Info($"Determined expected state for device'{m_Device.Name}': '{expectedState}'");
+            m_Logger.Info($"Determined expected state for device '{m_Device.Name}': '{expectedState}'");
 
 
             m_Logger.Info($"Checking state of device '{m_Device.Name}'");
@@ -97,7 +97,7 @@ namespace UptimeManager.Daemon
             }
             else
             {
-                m_Logger.Info("No actions needs to be taken, device is already in expected state");
+                m_Logger.Info($"No actions need to be taken for devie '{m_Device.Name}', device is already in expected state");
             }
 
             m_Logger.Info($"Checking state for device '{m_Device.Name}' complete");

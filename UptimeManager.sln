@@ -25,6 +25,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UptimeManager.Daemon", "Upt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UptimeManager.Configuration.Test", "UptimeManager.Configuration\test\UptimeManager.Configuration.Test.csproj", "{646A2258-FDD5-4E99-9E05-9E3A7CD566D8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{BA2E4DCA-154D-43BC-BC44-D75D3A87C0D7}"
+	ProjectSection(SolutionItems) = preProject
+		common\CommonProperties.properties = common\CommonProperties.properties
+		common\GlobalAssemblyInfo.cs = common\GlobalAssemblyInfo.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

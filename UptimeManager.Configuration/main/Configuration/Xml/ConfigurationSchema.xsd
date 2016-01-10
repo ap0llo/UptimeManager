@@ -19,13 +19,13 @@
 
 
   <xs:complexType name="DeviceT">
-    <xs:sequence>     
+    <xs:choice maxOccurs="unbounded">     
         <xs:element name="IsRunningCommand"  type="CommandT" minOccurs="0" maxOccurs="1" />
         <xs:element name="StartCommand"  type="CommandT" minOccurs="0" maxOccurs="1" />
         <xs:element name="StopCommand"  type="CommandT" minOccurs="0" maxOccurs="1" />
         <xs:element name="UptimeBufferInterval" type="TimeSpanT" minOccurs="0" maxOccurs="1" />
-      <xs:element name="UptimeProviders" type="UptimeProvidersT" minOccurs="1" maxOccurs="1" />
-    </xs:sequence>
+        <xs:element name="UptimeProviders" type="UptimeProvidersT" minOccurs="1" maxOccurs="1" />
+    </xs:choice>
     <xs:attribute name="Name" type="xs:string" use="required"     />        
   </xs:complexType>
 

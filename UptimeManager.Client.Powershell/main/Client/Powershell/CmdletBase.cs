@@ -16,7 +16,7 @@ namespace UptimeManager.Client.Powershell
         const string s_ConfigFileName = "Configuration.xml";
 
 
-        [Parameter(Mandatory = false, Position = 0)]
+        [Parameter(Mandatory = false)]
         public string ConfigurationFile { get; set; }
 
 

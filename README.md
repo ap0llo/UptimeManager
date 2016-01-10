@@ -57,7 +57,7 @@ To access Google Calendar, UptimeManager requries a client-key
 program as the key is not included in the source of UptimeManager.
 
 You can generate your own client-key using the
-[Google Developer Console](console.developers.google.com).
+[Google Developer Console](http://console.developers.google.com).
 
 In the console you can download the key in the json format.
 - If you name this file 'Google.ClientSecrets.json' and place is into the

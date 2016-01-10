@@ -20,7 +20,7 @@ Components
 ----------
 ###UptimeManager Daemon
 This is the core program that should run on an always-on computer (like a
-[Raspberry Pi](blob/master/docs/DaemonSetupNotes.md)).
+[Raspberry Pi](docs/DaemonSetupNotes.md)).
 It monitors one or more calendars, checks if the devices are currently running
 and issues start or stop commands if necessary.
 
@@ -39,7 +39,7 @@ calendar backend. This component is optional, the daemon can be used without
 the client components if the calendar is managed using any other
 calendaring software.
 
-See [Powershell Client](blob/master/docs/PowershellCmdlets.md) for details     
+See [Powershell Client](docs/PowershellCmdlets.md) for details     
 
 
 Configuration
@@ -47,7 +47,7 @@ Configuration
 UptimeManager uses a single configuration file in which all devices and the
 associated calendars are specified.
 
-See [Configuration File](blob/master/docs/ConfigurationFile.md) for details
+See [Configuration File](docs/ConfigurationFile.md) for details
 
 
 Build Instructions

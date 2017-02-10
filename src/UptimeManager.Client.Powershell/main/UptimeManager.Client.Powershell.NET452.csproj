@@ -77,15 +77,15 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\UptimeManager.Calendar\main\UptimeManager.Calendar.csproj">
+    <ProjectReference Include="..\..\UptimeManager.Calendar\main\UptimeManager.Calendar.NET40.csproj">
       <Project>{ad4ba0b3-cd24-48f7-bb82-8a0c8ea11bde}</Project>
       <Name>UptimeManager.Calendar</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\UptimeManager.Configuration\main\UptimeManager.Configuration.csproj">
+    <ProjectReference Include="..\..\UptimeManager.Configuration\main\UptimeManager.Configuration.NET40.csproj">
       <Project>{ecb379ba-5029-4f63-ac4e-1356e6ae044e}</Project>
       <Name>UptimeManager.Configuration</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\UptimeManager.Core\main\UptimeManager.Core.csproj">
+    <ProjectReference Include="..\..\UptimeManager.Core\main\UptimeManager.Core.NET40.csproj">
       <Project>{7ac68156-2f8d-4e2e-b676-b9c9b368ea2d}</Project>
       <Name>UptimeManager.Core</Name>
     </ProjectReference>

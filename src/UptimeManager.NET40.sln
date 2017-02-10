@@ -3,27 +3,27 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UptimeManager.Client.Powershell", "UptimeManager.Client.Powershell\main\UptimeManager.Client.Powershell.csproj", "{79F79528-D7AD-4731-B21C-84CE28E6B430}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UptimeManager.Client.Powershell", "UptimeManager.Client.Powershell\main\UptimeManager.Client.Powershell.NET452.csproj", "{79F79528-D7AD-4731-B21C-84CE28E6B430}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UptimeManager.Client.Powershell", "UptimeManager.Client.Powershell", "{DD2B2C5C-2ECD-4B60-BC3F-10220D3926A8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UptimeManager.Core", "UptimeManager.Core", "{262AD41A-6DDB-4C4F-A173-579E6D54829A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UptimeManager.Core", "UptimeManager.Core\main\UptimeManager.Core.csproj", "{7AC68156-2F8D-4E2E-B676-B9C9B368EA2D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UptimeManager.Core", "UptimeManager.Core\main\UptimeManager.Core.NET40.csproj", "{7AC68156-2F8D-4E2E-B676-B9C9B368EA2D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UptimeManager.Configuration", "UptimeManager.Configuration", "{1E1DA5A1-5620-4E50-8532-E86030BE2B30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UptimeManager.Configuration", "UptimeManager.Configuration\main\UptimeManager.Configuration.csproj", "{ECB379BA-5029-4F63-AC4E-1356E6AE044E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UptimeManager.Configuration", "UptimeManager.Configuration\main\UptimeManager.Configuration.NET40.csproj", "{ECB379BA-5029-4F63-AC4E-1356E6AE044E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UptimeManager.Calendar", "UptimeManager.Calendar", "{97D303F4-5995-4A27-9D53-8FB4607803BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UptimeManager.Calendar", "UptimeManager.Calendar\main\UptimeManager.Calendar.csproj", "{AD4BA0B3-CD24-48F7-BB82-8A0C8EA11BDE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UptimeManager.Calendar", "UptimeManager.Calendar\main\UptimeManager.Calendar.NET40.csproj", "{AD4BA0B3-CD24-48F7-BB82-8A0C8EA11BDE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UptimeManager.Daemon", "UptimeManager.Daemon", "{E367B360-F26C-4B33-A5CD-6B69E80A0F9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UptimeManager.Daemon", "UptimeManager.Daemon\main\UptimeManager.Daemon.csproj", "{BE786B30-6446-41FA-955B-16FC34ADB4C2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UptimeManager.Daemon", "UptimeManager.Daemon\main\UptimeManager.Daemon.NET40.csproj", "{BE786B30-6446-41FA-955B-16FC34ADB4C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UptimeManager.Configuration.Test", "UptimeManager.Configuration\test\UptimeManager.Configuration.Test.csproj", "{646A2258-FDD5-4E99-9E05-9E3A7CD566D8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UptimeManager.Configuration.Test", "UptimeManager.Configuration\test\UptimeManager.Configuration.Test.NET452.csproj", "{646A2258-FDD5-4E99-9E05-9E3A7CD566D8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{78C82958-E44F-4953-951E-0197A5B5E6FC}"
 	ProjectSection(SolutionItems) = preProject

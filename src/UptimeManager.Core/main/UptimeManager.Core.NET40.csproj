@@ -3,20 +3,15 @@
   <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory).., dir.properties))\dir.properties" Condition=" '$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory).., dir.properties))' != '' " />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />  
   <PropertyGroup>
-    <ProjectGuid>{BE786B30-6446-41FA-955B-16FC34ADB4C2}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{7AC68156-2F8D-4E2E-B676-B9C9B368EA2D}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>UptimeManager</RootNamespace>
-    <AssemblyName>UptimeManager.Daemon</AssemblyName>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <AssemblyName>UptimeManager.Core</AssemblyName>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\log4net.2.0.5\lib\net40-full\log4net.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
       <Private>True</Private>
@@ -27,10 +22,6 @@
     </Reference>
     <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop, Version=1.0.168.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.8.0.2\lib\net40\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
@@ -44,12 +35,20 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\net40\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\net40\System.Net.Http.Extensions.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Net.Http.Primitives, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\net40\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Runtime, Version=2.6.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -67,36 +66,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Daemon\Program.cs" />
-    <Compile Include="Daemon\SingleDeviceUptimeManagementDaemon.cs" />
+    <Compile Include="Calendar\CalendarFactoryExtensions.cs" />
+    <Compile Include="Core\CalendarTypeExtensions.cs" />
+    <Compile Include="Core\Client\UptimeManagementClient.cs" />
+    <Compile Include="Core\CommandExecutor.cs" />
+    <Compile Include="Core\DeviceState.cs" />
+    <Compile Include="Core\UptimeManagement.cs" />
+    <Compile Include="Core\_Exceptions\UptimeManagementException.cs" />
+    <Compile Include="Core\_Exceptions\CommandExecutionException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Daemon\UptimeManagementDaemon.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
-    <Content Include="NLog.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </Content>
-    <None Include="NLog.xsd">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\UptimeManager.Calendar\main\UptimeManager.Calendar.csproj">
-      <Project>{AD4BA0B3-CD24-48F7-BB82-8A0C8EA11BDE}</Project>
+    <ProjectReference Include="..\..\UptimeManager.Calendar\main\UptimeManager.Calendar.NET40.csproj">
+      <Project>{ad4ba0b3-cd24-48f7-bb82-8a0c8ea11bde}</Project>
       <Name>UptimeManager.Calendar</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\UptimeManager.Configuration\main\UptimeManager.Configuration.csproj">
-      <Project>{ECB379BA-5029-4F63-AC4E-1356E6AE044E}</Project>
+    <ProjectReference Include="..\..\UptimeManager.Configuration\main\UptimeManager.Configuration.NET40.csproj">
+      <Project>{ecb379ba-5029-4f63-ac4e-1356e6ae044e}</Project>
       <Name>UptimeManager.Configuration</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\UptimeManager.Core\main\UptimeManager.Core.csproj">
-      <Project>{7AC68156-2F8D-4E2E-B676-B9C9B368EA2D}</Project>
-      <Name>UptimeManager.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

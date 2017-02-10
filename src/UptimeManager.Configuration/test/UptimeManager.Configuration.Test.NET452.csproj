@@ -71,7 +71,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\main\UptimeManager.Configuration.csproj">
+    <ProjectReference Include="..\main\UptimeManager.Configuration.NET40.csproj">
       <Project>{ECB379BA-5029-4F63-AC4E-1356E6AE044E}</Project>
       <Name>UptimeManager.Configuration</Name>
     </ProjectReference>

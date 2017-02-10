@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <None Remove="packages.config" />
-    <None Remove="UptimeManager.Configuration.NET40.csproj.DotSettings" />    
+    <None Remove="UptimeManager.Configuration.NETFX.csproj.DotSettings" />    
   </ItemGroup>
 
   <PropertyGroup>

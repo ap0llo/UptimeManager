@@ -6,6 +6,7 @@ $msbuildVersion = "14.0"
 # The path of the solution to build determined automatically by searching "src" for solution files
 # to use a different solution (or when there are multiple solution files in src, the path can be set explicitly)
 $solutionPath = "src/UptimeManager.NETFX.sln"  
+$solutionPath2 = "src/UptimeManager.sln"  
 $platform = "Any CPU"
 $configuration = "Release"
 $msbuildLogPath = "./build/build.log"
@@ -114,4 +115,10 @@ if($LASTEXITCODE -ne 0)
     Write-Error "Build failed"
     exit 1
 }
+
+
+Write-Host "Building $($solutionPath2)"
+Invoke-Expression "dotnet restore $($solutionPath2)" 
+Invoke-Expression "dotnet build $($solutionPath2) -p:Configuration=$($configuration)"
+
 

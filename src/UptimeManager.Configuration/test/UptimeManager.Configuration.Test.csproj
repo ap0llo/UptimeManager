@@ -1,5 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory).., dir.properties))\dir.properties" Condition=" '$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory).., dir.properties))' != '' " />
+
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp1.0</TargetFramework>
@@ -7,14 +9,7 @@
 
   <ItemGroup>
     <None Remove="packages.config" />
-    <None Remove="_TestData\*.xml" />    
-  </ItemGroup>
-
-  <PropertyGroup>
-    <DefineConstants>$(DefineConstants);GENERATED_ASSEMBLYINFO;NETSTANDARD</DefineConstants>
-  </PropertyGroup>
-
-  <ItemGroup>
+    <None Remove="_TestData\*.xml" />      
     <Content Include="_TestData\*.xml" CopyToOutputDirectory="Always" />          
   </ItemGroup>
   
@@ -32,4 +27,6 @@
     <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
   </ItemGroup>
 
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory).., dir.targets))\dir.targets" Condition=" '$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory).., dir.targets))' != '' " />
+		  
 </Project>

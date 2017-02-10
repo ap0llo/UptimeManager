@@ -1,5 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory).., dir.properties))\dir.properties" 
+          Condition=" '$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory).., dir.properties))' != '' " />
+
   <PropertyGroup>
     <TargetFramework>netstandard1.4</TargetFramework>
   </PropertyGroup>
@@ -9,9 +12,10 @@
     <None Remove="UptimeManager.Configuration.NETFX.csproj.DotSettings" />    
   </ItemGroup>
 
-  <PropertyGroup>
-    <DefineConstants>$(DefineConstants);GENERATED_ASSEMBLYINFO;NETSTANDARD</DefineConstants>
-  </PropertyGroup>
-
+  
+		
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory).., dir.targets))\dir.targets" 
+          Condition=" '$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory).., dir.targets))' != '' " />
+  
   
 </Project>

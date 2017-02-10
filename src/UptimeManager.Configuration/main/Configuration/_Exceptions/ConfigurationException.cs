@@ -10,7 +10,9 @@ namespace UptimeManager.Configuration
     /// <summary>
     /// Represents an error that occurred while processing configuration
     /// </summary>
+    #if !NETSTANDARD
     [Serializable]
+    #endif
     public class ConfigurationException : Exception
     {
         public ConfigurationException(string message)

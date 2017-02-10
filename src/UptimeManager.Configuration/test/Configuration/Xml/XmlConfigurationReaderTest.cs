@@ -121,8 +121,12 @@ namespace UptimeManager.Configuration.Xml
 
 
         public string GetTestDataFilePath(string fileName)
-        {            
+        {
+#if NETSTANDARD
+            return Path.Combine(Directory.GetCurrentDirectory(), "_TestData", fileName);
+#else
             return Path.Combine(Environment.CurrentDirectory, "_TestData", fileName);
+#endif
         }
 
 

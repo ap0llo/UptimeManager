@@ -31,11 +31,12 @@ namespace UptimeManager.Configuration.Xml
             var absoluteFilePath = Path.GetFullPath(filePath);
             var document = XDocument.Load(absoluteFilePath);
 
+#if !NETSTANDARD
             document.Validate(GetConfigurationSchema(), (sender, args) =>
                 {
                     throw new ConfigurationException("Invalid configuration-file: " + args.Message, args.Exception);
                 });
-
+#endif 
             var versionString = document.Root.RequireAttributeValue(XmlAttributeNames.Version);
             EnsureVersionIsSupported(versionString);
 
@@ -185,6 +186,7 @@ namespace UptimeManager.Configuration.Xml
 
         ICommandSpecification ReadNopCommand(XElement nopCommandElement) => new NopCommandSpecification();
 
+#if !NETSTANDARD
         XmlSchemaSet GetConfigurationSchema()
         {
             using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(s_ConfigurationSchema))
@@ -196,7 +198,7 @@ namespace UptimeManager.Configuration.Xml
                 return schemaSet;
             }
         }
-
+#endif
         void EnsureVersionIsSupported(string versionString)
         {
             if (!s_SupportedConfigurationVersions.Contains(versionString))

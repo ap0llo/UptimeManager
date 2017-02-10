@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.4</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="packages.config" />
+    <None Remove="UptimeManager.Configuration.NET40.csproj.DotSettings" />    
+  </ItemGroup>
+
+  <PropertyGroup>
+    <DefineConstants>$(DefineConstants);GENERATED_ASSEMBLYINFO;NETSTANDARD</DefineConstants>
+  </PropertyGroup>
+
+  
+</Project>

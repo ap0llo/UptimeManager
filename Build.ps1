@@ -5,7 +5,7 @@ $nugetExeDir = "./build/tools"
 $msbuildVersion = "14.0"
 # The path of the solution to build determined automatically by searching "src" for solution files
 # to use a different solution (or when there are multiple solution files in src, the path can be set explicitly)
-#$solutionPath = "SOMEPATH.sln"  
+$solutionPath = "src/UptimeManager.NET40.sln"  
 $platform = "Any CPU"
 $configuration = "Release"
 $msbuildLogPath = "./build/build.log"

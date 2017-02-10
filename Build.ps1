@@ -117,8 +117,11 @@ if($LASTEXITCODE -ne 0)
 }
 
 
-Write-Host "Building $($solutionPath2)"
-Invoke-Expression "dotnet restore $($solutionPath2)" 
-Invoke-Expression "dotnet build $($solutionPath2) -p:Configuration=$($configuration)"
-
-
+# Build for .NET Core (skip on AppVeyor as this does not seem to work at the moment)
+$appVeyor = ($env:APPVEYOR -eq "True")
+if(!$appVeyor)
+{
+	Write-Host "Building $($solutionPath2)"
+	Invoke-Expression "dotnet restore $($solutionPath2)" 
+	Invoke-Expression "dotnet build $($solutionPath2) -p:Configuration=$($configuration)"
+}

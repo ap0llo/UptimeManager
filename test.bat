@@ -1,2 +1,2 @@
 @echo off
-./msbuild ./src/tests.proj /p:Configuration=Release
+CALL ./msbuild ./src/tests.proj /p:Configuration=Release

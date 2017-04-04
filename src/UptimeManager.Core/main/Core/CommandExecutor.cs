@@ -26,8 +26,8 @@ namespace UptimeManager.Core
             var ping = new Ping();
             
             try
-            {
-                var reply = ping.Send(pingCommand.Address);
+            {                
+                var reply = ping.SendPingAsync(pingCommand.Address).Result;
                 return reply?.Status == IPStatus.Success;
             }
             catch (PingException)

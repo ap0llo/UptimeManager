@@ -11,7 +11,6 @@ namespace UptimeManager.Calendar
     /// The exception that is thrown when a calendar could not be located (e.g. name in configuration does not match the name
     /// in the calendar backend)
     /// </summary>
-    [Serializable]
     public class CalendarNotFoundException : CalendarException
     {
         public CalendarNotFoundException(string message) : base(message)

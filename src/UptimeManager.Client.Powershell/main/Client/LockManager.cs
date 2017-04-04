@@ -102,7 +102,7 @@ namespace UptimeManager.Client
                             lockEvent.End = lockEvent.End + s_LockInterval;
                             lockEvent = calendar.UpdateEvent(lockEvent);
                         }
-                        TaskEx.Delay((int) s_LockInterval.TotalMilliseconds, cancellationTokenSource.Token).Wait(cancellationTokenSource.Token);
+                        Task.Delay((int) s_LockInterval.TotalMilliseconds, cancellationTokenSource.Token).Wait(cancellationTokenSource.Token);
                     }
                     catch (OperationCanceledException)
                     {

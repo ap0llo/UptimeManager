@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net461</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\UptimeManager.Core\main\UptimeManager.Core.csproj" />
+  </ItemGroup>
+  
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net461'">
+    <Reference Include="System.Management.Automation" />
+  </ItemGroup>
+
+  <!-- Workaround for https://github.com/dotnet/roslyn-project-system/issues/1739 -->
+  <PropertyGroup>
+    <AssemblySearchPaths>$(AssemblySearchPaths);{GAC}</AssemblySearchPaths>
+  </PropertyGroup>
+
+</Project>

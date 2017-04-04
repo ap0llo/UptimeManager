@@ -31,7 +31,7 @@ namespace UptimeManager.Configuration.Xml
             var absoluteFilePath = Path.GetFullPath(filePath);
             var document = XDocument.Load(absoluteFilePath);
 
-#if !NETSTANDARD
+#if !NETSTANDARD1_4
             document.Validate(GetConfigurationSchema(), (sender, args) =>
                 {
                     throw new ConfigurationException("Invalid configuration-file: " + args.Message, args.Exception);
@@ -186,7 +186,7 @@ namespace UptimeManager.Configuration.Xml
 
         ICommandSpecification ReadNopCommand(XElement nopCommandElement) => new NopCommandSpecification();
 
-#if !NETSTANDARD
+#if !NETSTANDARD1_4
         XmlSchemaSet GetConfigurationSchema()
         {
             using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(s_ConfigurationSchema))

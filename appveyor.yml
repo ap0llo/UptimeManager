@@ -1,5 +1,6 @@
-version: 1.0.{build}
+version: 2.0.{build}
 build_script:
-- ps: .\Build.ps1
+- cmd: .\build.bat
 test:
-  assemblies: build\Release\netfx\*.dll
+  assemblies: build\Release\*\*Test.dll
+image: Visual Studio 2017

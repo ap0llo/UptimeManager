@@ -10,7 +10,6 @@ namespace UptimeManager.Calendar
     /// <summary>
     /// The exception that is thrown when a error occurs while accessing a calendar
     /// </summary>
-    [Serializable]
     public class CalendarException : Exception
     {
         public CalendarException(string message)

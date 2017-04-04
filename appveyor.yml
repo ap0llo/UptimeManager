@@ -1,6 +1,6 @@
 version: 2.0.{build}
 build_script:
 - cmd: .\build.bat
-test_script::
+test_script:
 - cmd: .\test.bat
 image: Visual Studio 2017

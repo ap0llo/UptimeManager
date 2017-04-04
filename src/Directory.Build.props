@@ -16,13 +16,19 @@
 		<MainProjectPath Condition="$(IsTestProject)">$(MSBuildProjectDirectory)\..\main\$(MSBuildProjectName.Replace('.Test', '')).csproj</MainProjectPath>    
 	</PropertyGroup>
 		
-	<!-- For test projects, automatically include a reference to the corresponding main project -->	
+	<!-- For test projects, automatically include a reference to the corresponding main project and xunit -->		
+	<PropertyGroup Condition="$(IsTestProject)">
+		<XunitVersion>2.2.0</XunitVersion>
+	</PropertyGroup>
+	
 	<ItemGroup Condition="$(IsTestProject)">
 		<ProjectReference Include="$(MainProjectPath)" Condition="Exists('$(MainProjectPath)')" />
+						
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0" />
+		<PackageReference Include="xunit" Version="$(XunitVersion)" />
+		<PackageReference Include="xunit.runner.visualstudio" Version="$(XunitVersion)" />
 		
-	<PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0" />
-		<PackageReference Include="xunit" Version="2.2.0" />
-		<PackageReference Include="xunit.runner.visualstudio" Version="2.2.0" />
+		<PackageReference Include="xunit.runner.console" Version="$(XunitVersion)" Condition="'$(TargetFramework)' == 'net461'"/>
 	</ItemGroup>
 
 
@@ -34,7 +40,7 @@
 		<Reference Include="Microsoft.CSharp" />
 		<Reference Include="System.Data" />
 		<Reference Include="System.Net.Http" />
-		<Reference Include="System.Xml" />
+		<Reference Include="System.Xml" />					
 	</ItemGroup>
 
 </Project>

@@ -1,0 +1,11 @@
+<Project>
+
+  <Target Name="Test">
+  
+	<Message Text="Running Tests for $(AssemblyName)" />	
+	<Exec Command="dotnet test $(MSBuildProjectFullPath) /p:Configuration=$(Configuration)" Condition="'$(TargetFramework)' != 'net461'" />	
+	<Exec Command="$(NuGetPackageRoot)xunit.runner.console\$(XunitVersion)\tools\xunit.console.exe &quot;$(OutputPath)$(AssemblyName).dll&quot;" Condition="'$(TargetFramework)' == 'net461'" />
+	
+  </Target>
+
+</Project>	

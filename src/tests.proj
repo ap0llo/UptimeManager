@@ -1,0 +1,14 @@
+<Project>
+	<PropertyGroup>		
+		<Configuration>Debug</Configuration>		
+	</PropertyGroup>
+
+	<ItemGroup>
+		<TestProject Include="src/*/test/*.csproj" />
+	</ItemGroup>
+	
+	<Target Name="Test">
+		<MSBuild Projects="@(TestProject)" Targets="Test" BuildInParallel="false" Properties="Configuration=$(Configuration)" />          
+	</Target>
+	
+</Project>

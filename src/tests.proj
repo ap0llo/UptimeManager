@@ -4,7 +4,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<TestProject Include="src/*/test/*.csproj" />
+		<TestProject Include="$(MSBuildThisFileDirectory)*/test/*.csproj" />
 	</ItemGroup>
 	
 	<Target Name="Test">

@@ -1,2 +1,5 @@
 @echo off
-rmdir /Q /S build
+if exist build (
+	rmdir /Q /S build
+)
+

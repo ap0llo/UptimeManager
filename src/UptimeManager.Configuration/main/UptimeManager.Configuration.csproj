@@ -1,21 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory).., dir.properties))\dir.properties" 
-          Condition=" '$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory).., dir.properties))' != '' " />
-
+ 
   <PropertyGroup>
-    <TargetFramework>netstandard1.4</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+ 
   <ItemGroup>
-    <None Remove="packages.config" />
-    <None Remove="UptimeManager.Configuration.NETFX.csproj.DotSettings" />    
+    <None Remove="Configuration\Xml\ConfigurationSchema.xsd" />
   </ItemGroup>
 
-  
-		
-  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory).., dir.targets))\dir.targets" 
-          Condition=" '$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory).., dir.targets))' != '' " />
-  
+ 
+  <ItemGroup>
+    <EmbeddedResource Include="Configuration\Xml\ConfigurationSchema.xsd" />
+  </ItemGroup>
+
   
 </Project>

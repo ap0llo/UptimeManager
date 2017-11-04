@@ -1,4 +1,4 @@
-﻿// // -----------------------------------------------------------------------------------------------------------
+// // -----------------------------------------------------------------------------------------------------------
 // //  Copyright (c) 2015-2016, Andreas Grünwald
 // //  Licensed under the MIT License. See LICENSE.txt file in the project root for full license information.  
 // // -----------------------------------------------------------------------------------------------------------
@@ -17,7 +17,7 @@ namespace UptimeManager.Client
     class LockManager
     {
         /// <summary>
-        /// Interval in which the vent is updated (event is prolonged by this duration)
+        /// Interval in which the event is updated (event is prolonged by this duration)
         /// </summary>
         static readonly TimeSpan s_LockInterval = new TimeSpan(hours: 0, minutes: 10, seconds: 0);
 
@@ -102,7 +102,7 @@ namespace UptimeManager.Client
                             lockEvent.End = lockEvent.End + s_LockInterval;
                             lockEvent = calendar.UpdateEvent(lockEvent);
                         }
-                        TaskEx.Delay((int) s_LockInterval.TotalMilliseconds, cancellationTokenSource.Token).Wait(cancellationTokenSource.Token);
+                        Task.Delay((int) s_LockInterval.TotalMilliseconds, cancellationTokenSource.Token).Wait(cancellationTokenSource.Token);
                     }
                     catch (OperationCanceledException)
                     {

@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFramework>net461</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Management.Automation" />
+    <ProjectReference Include="..\..\UptimeManager.Core\main\UptimeManager.Core.csproj" />
+  </ItemGroup>
+
+  <!-- Include global assembly cache in search paths (to reference System.Management.Automation)-->
+  <PropertyGroup>
+    <AssemblySearchPaths>$(AssemblySearchPaths);{GAC}</AssemblySearchPaths>
+  </PropertyGroup>
+
+</Project>

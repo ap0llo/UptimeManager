@@ -22,7 +22,7 @@ namespace UptimeManager.Configuration.Xml
 
         static readonly string[] s_SupportedConfigurationVersions = { "1.0" };
 
-        const string s_ConfigurationSchema = "UptimeManager.Configuration.Configuration.Xml.ConfigurationSchema.xsd";
+        const string s_ConfigurationSchema = "UptimeManager.Configuration.Xml.ConfigurationSchema.xsd";
 
 
 

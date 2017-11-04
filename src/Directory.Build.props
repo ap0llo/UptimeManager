@@ -6,6 +6,10 @@
     <LangVersion>7.1</LangVersion>
   </PropertyGroup>
   
+  <PropertyGroup>
+    <RootNamespace>UptimeManager</RootNamespace>
+  </PropertyGroup>
+
   <Import Project="$(BuildToolsDirectory)ProjectTypeInference.props" />
   <Import Project="$(BuildToolsDirectory)OutputSettings.props" />
   

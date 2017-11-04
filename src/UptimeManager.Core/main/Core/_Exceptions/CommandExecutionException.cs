@@ -7,7 +7,6 @@ using System;
 
 namespace UptimeManager.Core
 {
-    [Serializable]
     public class CommandExecutionException : UptimeManagementException
     {
 

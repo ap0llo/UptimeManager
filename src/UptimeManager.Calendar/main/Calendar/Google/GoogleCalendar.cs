@@ -313,7 +313,7 @@ namespace UptimeManager.Calendar.Google
 
         Stream OpenClientSecretsStream()
         {
-            var assembly = Assembly.GetExecutingAssembly();
+            var assembly = GetType().GetTypeInfo().Assembly;
 
             // if client key was embedded into assembly, load the embedded resource
             if (assembly.GetManifestResourceNames().Contains(s_ClientSecretsResourceName))
@@ -322,9 +322,8 @@ namespace UptimeManager.Calendar.Google
             }
             // else: look for a client secrets file placed next to the assembly
             else
-            {
-                var directory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);            
-                var file = Path.Combine(directory, s_ClientSecretsResourceName);
+            {                    
+                var file = Path.Combine(AppContext.BaseDirectory, s_ClientSecretsResourceName);
                 return File.Open(file, FileMode.Open);
             }
         }

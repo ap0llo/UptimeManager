@@ -1,6 +1,6 @@
 <Project DefaultTargets="Test">
-	<PropertyGroup>		
-		<Configuration>Debug</Configuration>		
+	<PropertyGroup>
+		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
 	</PropertyGroup>
 
 	<ItemGroup>

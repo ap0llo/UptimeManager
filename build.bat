@@ -12,5 +12,5 @@ CALL %~dp0\msbuild.bat %SOLUTIONPATH% /t:Restore %COMMONPARAMETERS%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 REM Build
-CALL %~dp0\msbuild.bat %SOLUTIONPATH% /t:Build %COMMONPARAMETERS% /p:BuildSetupOnBuild=true %*
+CALL %~dp0\msbuild.bat %SOLUTIONPATH% /t:Build %COMMONPARAMETERS% %*
 

@@ -1,17 +1,31 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net461</TargetFramework>
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
+	</PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <ZipBuildOutputsOutputName>$(AssemblyName).$(PackageVersion).PowershellCore</ZipBuildOutputsOutputName>   
   </PropertyGroup>
 
-  <ItemGroup>
-    <Reference Include="System.Management.Automation" />
-    <ProjectReference Include="..\..\UptimeManager.Core\main\UptimeManager.Core.csproj" />
-  </ItemGroup>
-
-  <!-- Include global assembly cache in search paths (to reference System.Management.Automation)-->
-  <PropertyGroup>
-    <AssemblySearchPaths>$(AssemblySearchPaths);{GAC}</AssemblySearchPaths>
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net461'">    
+    <ZipBuildOutputsOutputName >$(AssemblyName).$(PackageVersion).WindowsPowershell</ZipBuildOutputsOutputName>
   </PropertyGroup>
+  
+	<ItemGroup>
+		<ProjectReference Include="..\..\UptimeManager.Core\main\UptimeManager.Core.csproj" />
+		<PackageReference Include="PowerShellStandard.Library" Version="5.1.0-preview-01" />
+	</ItemGroup>
+
+  <!--
+    When building the netstandard version inside Visual Studio trigger a publish after build.
+    This way, a pwsh instance can be launched from within Visual Studio
+    (Importing just the output of "Build" is not sufficient as Powershell core is not able
+     to resolve assemby references that are not present in the output directory)
+  -->
+  <Target Name="TriggerPublishAfterBuild" AfterTargets="Build" Condition="'$(BuildingInsideVisualStudio)' == 'true' AND '$(TargetFramework)' == 'netstandard2.0'">
+    <CallTarget Targets="Publish" />
+  </Target>
+  
 
 </Project>

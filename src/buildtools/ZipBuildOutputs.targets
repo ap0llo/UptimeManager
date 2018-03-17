@@ -1,0 +1,18 @@
+<!-- 
+	Automatically create a zip archive for the application after publish
+-->
+<Project>
+
+	<Target Name="ZipBuildOutputs" AfterTargets="Publish" Condition="'$(ZipPublishDir)' == 'true' ">
+		<PropertyGroup>
+			<ZipBuildOutputsOutputDir>$(BaseOutputPath)$(Configuration)\</ZipBuildOutputsOutputDir>
+			<ZipBuildOutputsOutputName Condition=" '$(ZipBuildOutputsOutputName)' == '' ">$(PackageId).$(PackageVersion).$(RuntimeIdentifier)</ZipBuildOutputsOutputName>
+			<PublishZipDestination>$(ZipBuildOutputsOutputDir)$(ZipBuildOutputsOutputName).zip</PublishZipDestination>
+		</PropertyGroup>
+	
+		<Message Text="Creating archive from directory '$(PublishDir)' at '$(PublishZipDestination)' " />
+		<Exec Command="powershell -Command Compress-Archive -DestinationPath &quot;$(PublishZipDestination)&quot; -Path .\* -Force" 
+		      WorkingDirectory="$(PublishDir)" />
+	</Target>
+
+</Project>

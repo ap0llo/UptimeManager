@@ -3,6 +3,6 @@
 	<!-- Import target -->
 	<Import Project="$(BuildToolsDirectory)Test.targets" Condition="$(IsTestProject)" />
 	<Import Project="$(BuildToolsDirectory)InternalsVisibileTo.targets" Condition="!$(IsTestProject)" />
-	<Import Project="$(BuildToolsDirectory)ZipPublishDir.targets" />
+	<Import Project="$(BuildToolsDirectory)ZipBuildOutputs.targets" />
 
 </Project>

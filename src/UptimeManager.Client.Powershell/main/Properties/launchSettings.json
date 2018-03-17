@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "Powershell Core": {
+      "commandName": "Executable",
+      "executablePath": "pwsh",
+      "commandLineArgs": "-NoExit -Command \"Import-Module .\\publish\\UptimeManager.Client.Powershell.dll; cd ~\" "
+    },
+    "Windows Powershell": {
+      "commandName": "Executable",
+      "executablePath": "powershell",
+      "commandLineArgs": "-NoExit -Command \"Import-Module ..\\net461\\UptimeManager.Client.Powershell.dll; cd ~\" "
+    }
+  }
+}

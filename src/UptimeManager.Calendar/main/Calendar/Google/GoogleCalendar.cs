@@ -1,4 +1,4 @@
-﻿// -----------------------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------------------------
 //  Copyright (c) 2015-2017, Andreas Grünwald
 //  Licensed under the MIT License. See LICENSE.txt file in the project root for full license information.  
 // -----------------------------------------------------------------------------------------------------------
@@ -313,7 +313,7 @@ namespace UptimeManager.Calendar.Google
 
         Stream OpenClientSecretsStream()
         {
-            var assembly = GetType().GetTypeInfo().Assembly;
+            var assembly = Assembly.GetExecutingAssembly();
 
             // if client key was embedded into assembly, load the embedded resource
             if (assembly.GetManifestResourceNames().Contains(s_ClientSecretsResourceName))
@@ -322,8 +322,10 @@ namespace UptimeManager.Calendar.Google
             }
             // else: look for a client secrets file placed next to the assembly
             else
-            {                    
-                var file = Path.Combine(AppContext.BaseDirectory, s_ClientSecretsResourceName);
+            {
+                var assemblyDirectory = Path.GetDirectoryName(assembly.Location);
+                
+                var file = Path.Combine(assemblyDirectory, s_ClientSecretsResourceName);
                 return File.Open(file, FileMode.Open);
             }
         }

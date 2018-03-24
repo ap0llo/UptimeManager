@@ -1,7 +1,26 @@
-<!-- 
+<!--
 	Automatically create a zip archive for the application after publish
 -->
 <Project>
+
+	<UsingTask  TaskName="ZipDirectory"
+	            TaskFactory="CodeTaskFactory"
+	            AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v12.0.dll" >  
+		<ParameterGroup>
+			<SourceDirectoryPath ParameterType="System.String" Required="true" />
+			<DestinationFilePath ParameterType="System.String" Required="true" />
+		</ParameterGroup>
+		<Task>
+			<Reference Include="System.IO.Compression" />
+			<Reference Include="System.IO.Compression.FileSystem" />
+			<Using Namespace=" System.IO.Compression" />
+			<Code Type="Fragment" Language="cs"><![CDATA[  
+				ZipFile.CreateFromDirectory(SourceDirectoryPath, DestinationFilePath, CompressionLevel.Optimal ,false );
+			]]> 
+			</Code>
+		</Task>
+	</UsingTask>
+
 
 	<Target Name="ZipBuildOutputs" AfterTargets="Publish" Condition="'$(ZipPublishDir)' == 'true' ">
 		<PropertyGroup>
@@ -11,8 +30,10 @@
 		</PropertyGroup>
 	
 		<Message Text="Creating archive from directory '$(PublishDir)' at '$(PublishZipDestination)' " />
-		<Exec Command="powershell -Command Compress-Archive -DestinationPath &quot;$(PublishZipDestination)&quot; -Path .\* -Force" 
-		      WorkingDirectory="$(PublishDir)" />
+		<ZipDirectory  DestinationFilePath="$(PublishZipDestination)" SourceDirectoryPath="$(PublishDir)" />
+
 	</Target>
+
+
 
 </Project>

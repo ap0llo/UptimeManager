@@ -1,9 +1,11 @@
-UptimeManager
-=============
+# UptimeManager
+
 Power-management using Google Calendar
 
-Description
------------
+**Disclaimer:** I'm in the process of reqriting/cleaning up this project. The content of this README might not be up-to date
+
+## Description
+
 "UptimeManager" is a tool I wrote some time ago to manage when the server
 in my local network that is supposed to collect backups of my computers is
 powered on.
@@ -16,9 +18,10 @@ This also works for repeating events, for example you could configure the server
 that is collecting backups to be powered every day 2pm to 6pm.
 
 
-Components
-----------
-###UptimeManager Daemon
+## Components
+
+### UptimeManager Daemon
+
 This is the core program that should run on an always-on computer (like a
 [Raspberry Pi](docs/DaemonSetupNotes.md)).
 It monitors one or more calendars, checks if the devices are currently running
@@ -33,7 +36,8 @@ command line parameter
     mono UptimeManager.Daemon.exe CONFIGFILEPATH
 
 
-###UptimeManager Powershell Client
+### UptimeManager Powershell Client
+
 UptimeManager includes a set of Powershell Cmdlets to interact with the
 calendar backend. This component is optional, the daemon can be used without
 the client components if the calendar is managed using any other
@@ -42,16 +46,16 @@ calendaring software.
 See [Powershell Client](docs/PowershellCmdlets.md) for details     
 
 
-Configuration
--------------
+## Configuration
+
 UptimeManager uses a single configuration file in which all devices and the
 associated calendars are specified.
 
 See [Configuration File](docs/ConfigurationFile.md) for details
 
 
-Build Instructions
--------------------
+## Build Instructions
+
 To access Google Calendar, UptimeManager requries a client-key
 ("OAuth client ID"). You need to generate your own key in order to use the
 program as the key is not included in the source of UptimeManager.
@@ -73,8 +77,8 @@ In the console you can download the key in the json format.
   'UptimeManager.Calender.Google.ClientSecrets.json' located in the same
   directory as UptimeManager.Calendar.dll and load the client-key from there.
 
-Acknowledgements
-----------------
+## Acknowledgements
+
 UptimeManager uses a number of third party components
 - [NLog](http://nlog-project.org/), licensed under the BSD-License
 - [Google APIs client Library for .NET](https://github.com/google/google-api-dotnet-client/)
@@ -84,7 +88,7 @@ For testing
 - [xunit](http://xunit.github.io), licensed under the Apache License, version 2
 
 
-License
--------
+## License
+
 UptimeManager is licensed under the MIT License.
 See LICENSE.txt file in the project root for full license information.

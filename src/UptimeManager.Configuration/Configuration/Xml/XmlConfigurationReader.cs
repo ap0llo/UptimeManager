@@ -1,4 +1,4 @@
-// -----------------------------------------------------------------------------------------------------------
+﻿// -----------------------------------------------------------------------------------------------------------
 //  Copyright (c) 2015-2017, Andreas Grünwald
 //  Licensed under the MIT License. See LICENSE.txt file in the project root for full license information.  
 // -----------------------------------------------------------------------------------------------------------
@@ -22,7 +22,7 @@ namespace UptimeManager.Configuration.Xml
 
         static readonly string[] s_SupportedConfigurationVersions = { "1.0" };
 
-        const string s_ConfigurationSchema = "UptimeManager.Configuration.Xml.ConfigurationSchema.xsd";
+        const string s_ConfigurationSchema = "UptimeManager.Configuration.Configuration.Xml.ConfigurationSchema.xsd";
 
 
 
@@ -31,12 +31,11 @@ namespace UptimeManager.Configuration.Xml
             var absoluteFilePath = Path.GetFullPath(filePath);
             var document = XDocument.Load(absoluteFilePath);
 
-#if !NETSTANDARD1_4
             document.Validate(GetConfigurationSchema(), (sender, args) =>
                 {
                     throw new ConfigurationException("Invalid configuration-file: " + args.Message, args.Exception);
                 });
-#endif 
+
             var versionString = document.Root.RequireAttributeValue(XmlAttributeNames.Version);
             EnsureVersionIsSupported(versionString);
 
@@ -186,7 +185,6 @@ namespace UptimeManager.Configuration.Xml
 
         ICommandSpecification ReadNopCommand(XElement nopCommandElement) => new NopCommandSpecification();
 
-#if !NETSTANDARD1_4
         XmlSchemaSet GetConfigurationSchema()
         {
             using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(s_ConfigurationSchema))
@@ -198,7 +196,7 @@ namespace UptimeManager.Configuration.Xml
                 return schemaSet;
             }
         }
-#endif
+
         void EnsureVersionIsSupported(string versionString)
         {
             if (!s_SupportedConfigurationVersions.Contains(versionString))

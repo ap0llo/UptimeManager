@@ -1,11 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
- 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
- 
   <ItemGroup>
     <None Remove="Configuration\Xml\ConfigurationSchema.xsd" />
   </ItemGroup>
@@ -15,5 +13,4 @@
     <EmbeddedResource Include="Configuration\Xml\ConfigurationSchema.xsd" />
   </ItemGroup>
 
-  
 </Project>

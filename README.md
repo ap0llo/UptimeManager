@@ -2,8 +2,6 @@ UptimeManager
 =============
 Power-management using Google Calendar
 
-[![Build status](https://ci.appveyor.com/api/projects/status/2ly6j9c3cda7qhi2?svg=true)](https://ci.appveyor.com/project/ap0llo/uptimemanager)
-
 Description
 -----------
 "UptimeManager" is a tool I wrote some time ago to manage when the server

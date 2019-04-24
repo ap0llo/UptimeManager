@@ -1,16 +1,23 @@
 <Project>
 
   <PropertyGroup>
-    <SrcRootDirectory>$(MSBuildThisFileDirectory)</SrcRootDirectory>
-    <BuildToolsDirectory>$(SrcRootDirectory)buildtools\</BuildToolsDirectory>
-    <LangVersion>7.1</LangVersion>
-  </PropertyGroup>
-  
-  <PropertyGroup>
-    <RootNamespace>UptimeManager</RootNamespace>
+    <LangVersion>7.3</LangVersion>
   </PropertyGroup>
 
-  <Import Project="$(BuildToolsDirectory)ProjectTypeInference.props" />
-  <Import Project="$(BuildToolsDirectory)OutputSettings.props" />
+  <PropertyGroup>
+    <BaseOutputPath Condition="'$(BUILD_BINARIESDIRECTORY)' != '' ">$(BUILD_BINARIESDIRECTORY)</BaseOutputPath>
+    <BaseOutputPath Condition="'$(BaseOutputPath)' == '' ">$(MSBuildThisFileDirectory)..\Build\</BaseOutputPath>
+    <BaseOutputPath Condition="!HasTrailingSlash('BaseOutputPath')">$(BaseOutputPath)\</BaseOutputPath>
+    <BaseIntermediateOutputPath>$(BaseOutputPath)intermediate\$(MSBuildProjectName)\</BaseIntermediateOutputPath>
+    <OutputPath>$(BaseOutputPath)$(Configuration)\$(MSBuildProjectName)\</OutputPath>
+  </PropertyGroup>
   
+  <ItemGroup>
+    <PackageReference Include="Nerdbank.GitVersioning" Version="2.3.125" />
+    <PackageReference Include="Microsoft.DotNet.Analyzers.Compatibility" Version="0.2.12-alpha" PrivateAssets="all" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <Copyright>Copyright (c) 2015-2019, Andreas Gruenwald</Copyright>
+  </PropertyGroup>
 </Project>

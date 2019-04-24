@@ -2,27 +2,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UptimeManager.Configuration", "UptimeManager.Configuration", "{0F779401-53BF-47A6-8D2D-F955C6C60490}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UptimeManager.Configuration", "UptimeManager.Configuration\UptimeManager.Configuration.csproj", "{FFC450DD-C82E-4B33-8F1A-C2657D26CBE5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UptimeManager.Configuration", "UptimeManager.Configuration\main\UptimeManager.Configuration.csproj", "{FFC450DD-C82E-4B33-8F1A-C2657D26CBE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UptimeManager.Configuration.Test", "UptimeManager.Configuration.Test\UptimeManager.Configuration.Test.csproj", "{09196BE5-7536-4E02-A5F7-277BEF8C079A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UptimeManager.Configuration.Test", "UptimeManager.Configuration\test\UptimeManager.Configuration.Test.csproj", "{09196BE5-7536-4E02-A5F7-277BEF8C079A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UptimeManager.Calendar", "UptimeManager.Calendar\UptimeManager.Calendar.csproj", "{CD4B31A5-3345-4AC7-8683-B7839B9DD6D6}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UptimeManager.Calendar", "UptimeManager.Calendar", "{EC520E6B-BC94-440C-BF2B-F288A77BE740}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UptimeManager.Client.Powershell", "UptimeManager.Client.Powershell\UptimeManager.Client.Powershell.csproj", "{1682A6F2-2E50-40B2-93F0-7910F49EC969}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UptimeManager.Calendar", "UptimeManager.Calendar\main\UptimeManager.Calendar.csproj", "{CD4B31A5-3345-4AC7-8683-B7839B9DD6D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UptimeManager.Core", "UptimeManager.Core\UptimeManager.Core.csproj", "{0E009A8F-DE06-47AB-9F5A-944709D694C3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UptimeManager.Client.Powershell", "UptimeManager.Client.Powershell", "{8C3CBF8A-F675-4CCB-A072-2B6FD946B08F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UptimeManager.Daemon", "UptimeManager.Daemon\UptimeManager.Daemon.csproj", "{933E6F49-8B7F-474B-9A12-68EB1B020DFC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UptimeManager.Client.Powershell", "UptimeManager.Client.Powershell\main\UptimeManager.Client.Powershell.csproj", "{1682A6F2-2E50-40B2-93F0-7910F49EC969}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UptimeManager.Calendar.Test", "UptimeManager.Calendar.Test\UptimeManager.Calendar.Test.csproj", "{A3410566-FC8A-43A6-B57A-0B7D369058C3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UptimeManager.Core", "UptimeManager.Core", "{AC00B9C4-F412-4365-97E3-C96875DE33DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UptimeManager.Client.Powershell.Test", "UptimeManager.Client.Powershell.Test\UptimeManager.Client.Powershell.Test.csproj", "{609A0791-597D-499B-B969-88966B0BD341}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UptimeManager.Core", "UptimeManager.Core\main\UptimeManager.Core.csproj", "{0E009A8F-DE06-47AB-9F5A-944709D694C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UptimeManager.Core.Test", "UptimeManager.Core.Test\UptimeManager.Core.Test.csproj", "{36033597-75DD-4F3E-8FD6-36EC07B703A4}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UptimeManager.Daemon", "UptimeManager.Daemon", "{121236E6-8BF0-47E7-BCA6-5C7113510568}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UptimeManager.Daemon", "UptimeManager.Daemon\main\UptimeManager.Daemon.csproj", "{933E6F49-8B7F-474B-9A12-68EB1B020DFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UptimeManager.Daemon.Test", "UptimeManager.Daemon.Test\UptimeManager.Daemon.Test.csproj", "{44E27779-8443-4FE0-BD81-D91196246A82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -106,17 +104,57 @@ Global
 		{933E6F49-8B7F-474B-9A12-68EB1B020DFC}.Release|x64.Build.0 = Release|Any CPU
 		{933E6F49-8B7F-474B-9A12-68EB1B020DFC}.Release|x86.ActiveCfg = Release|Any CPU
 		{933E6F49-8B7F-474B-9A12-68EB1B020DFC}.Release|x86.Build.0 = Release|Any CPU
+		{A3410566-FC8A-43A6-B57A-0B7D369058C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3410566-FC8A-43A6-B57A-0B7D369058C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3410566-FC8A-43A6-B57A-0B7D369058C3}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A3410566-FC8A-43A6-B57A-0B7D369058C3}.Debug|x64.Build.0 = Debug|Any CPU
+		{A3410566-FC8A-43A6-B57A-0B7D369058C3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A3410566-FC8A-43A6-B57A-0B7D369058C3}.Debug|x86.Build.0 = Debug|Any CPU
+		{A3410566-FC8A-43A6-B57A-0B7D369058C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3410566-FC8A-43A6-B57A-0B7D369058C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3410566-FC8A-43A6-B57A-0B7D369058C3}.Release|x64.ActiveCfg = Release|Any CPU
+		{A3410566-FC8A-43A6-B57A-0B7D369058C3}.Release|x64.Build.0 = Release|Any CPU
+		{A3410566-FC8A-43A6-B57A-0B7D369058C3}.Release|x86.ActiveCfg = Release|Any CPU
+		{A3410566-FC8A-43A6-B57A-0B7D369058C3}.Release|x86.Build.0 = Release|Any CPU
+		{609A0791-597D-499B-B969-88966B0BD341}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{609A0791-597D-499B-B969-88966B0BD341}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{609A0791-597D-499B-B969-88966B0BD341}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{609A0791-597D-499B-B969-88966B0BD341}.Debug|x64.Build.0 = Debug|Any CPU
+		{609A0791-597D-499B-B969-88966B0BD341}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{609A0791-597D-499B-B969-88966B0BD341}.Debug|x86.Build.0 = Debug|Any CPU
+		{609A0791-597D-499B-B969-88966B0BD341}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{609A0791-597D-499B-B969-88966B0BD341}.Release|Any CPU.Build.0 = Release|Any CPU
+		{609A0791-597D-499B-B969-88966B0BD341}.Release|x64.ActiveCfg = Release|Any CPU
+		{609A0791-597D-499B-B969-88966B0BD341}.Release|x64.Build.0 = Release|Any CPU
+		{609A0791-597D-499B-B969-88966B0BD341}.Release|x86.ActiveCfg = Release|Any CPU
+		{609A0791-597D-499B-B969-88966B0BD341}.Release|x86.Build.0 = Release|Any CPU
+		{36033597-75DD-4F3E-8FD6-36EC07B703A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36033597-75DD-4F3E-8FD6-36EC07B703A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36033597-75DD-4F3E-8FD6-36EC07B703A4}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{36033597-75DD-4F3E-8FD6-36EC07B703A4}.Debug|x64.Build.0 = Debug|Any CPU
+		{36033597-75DD-4F3E-8FD6-36EC07B703A4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{36033597-75DD-4F3E-8FD6-36EC07B703A4}.Debug|x86.Build.0 = Debug|Any CPU
+		{36033597-75DD-4F3E-8FD6-36EC07B703A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36033597-75DD-4F3E-8FD6-36EC07B703A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36033597-75DD-4F3E-8FD6-36EC07B703A4}.Release|x64.ActiveCfg = Release|Any CPU
+		{36033597-75DD-4F3E-8FD6-36EC07B703A4}.Release|x64.Build.0 = Release|Any CPU
+		{36033597-75DD-4F3E-8FD6-36EC07B703A4}.Release|x86.ActiveCfg = Release|Any CPU
+		{36033597-75DD-4F3E-8FD6-36EC07B703A4}.Release|x86.Build.0 = Release|Any CPU
+		{44E27779-8443-4FE0-BD81-D91196246A82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44E27779-8443-4FE0-BD81-D91196246A82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44E27779-8443-4FE0-BD81-D91196246A82}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{44E27779-8443-4FE0-BD81-D91196246A82}.Debug|x64.Build.0 = Debug|Any CPU
+		{44E27779-8443-4FE0-BD81-D91196246A82}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{44E27779-8443-4FE0-BD81-D91196246A82}.Debug|x86.Build.0 = Debug|Any CPU
+		{44E27779-8443-4FE0-BD81-D91196246A82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44E27779-8443-4FE0-BD81-D91196246A82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44E27779-8443-4FE0-BD81-D91196246A82}.Release|x64.ActiveCfg = Release|Any CPU
+		{44E27779-8443-4FE0-BD81-D91196246A82}.Release|x64.Build.0 = Release|Any CPU
+		{44E27779-8443-4FE0-BD81-D91196246A82}.Release|x86.ActiveCfg = Release|Any CPU
+		{44E27779-8443-4FE0-BD81-D91196246A82}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{FFC450DD-C82E-4B33-8F1A-C2657D26CBE5} = {0F779401-53BF-47A6-8D2D-F955C6C60490}
-		{09196BE5-7536-4E02-A5F7-277BEF8C079A} = {0F779401-53BF-47A6-8D2D-F955C6C60490}
-		{CD4B31A5-3345-4AC7-8683-B7839B9DD6D6} = {EC520E6B-BC94-440C-BF2B-F288A77BE740}
-		{1682A6F2-2E50-40B2-93F0-7910F49EC969} = {8C3CBF8A-F675-4CCB-A072-2B6FD946B08F}
-		{0E009A8F-DE06-47AB-9F5A-944709D694C3} = {AC00B9C4-F412-4365-97E3-C96875DE33DF}
-		{933E6F49-8B7F-474B-9A12-68EB1B020DFC} = {121236E6-8BF0-47E7-BCA6-5C7113510568}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {553DE726-4013-46CC-A672-25C5D2B2D385}
